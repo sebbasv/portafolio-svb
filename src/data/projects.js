@@ -51,19 +51,8 @@ export const PROJECTS = [
     frameUrl: 'sebbasv.github.io/Manaba.github.io',
   },
   {
-    id: 'sebtech',
-    index: '03',
-    year: '2026',
-    stack: 'HTML · SCSS · JavaScript',
-    shot: sebtechShot,
-    logo: sebtechLogo,
-    logoType: 'webp',
-    url: 'https://sebbasv.github.io/sebtech.github.io/',
-    frameUrl: 'sebbasv.github.io/sebtech.github.io',
-  },
-  {
     id: 'capricciosa',
-    index: '04',
+    index: '03',
     year: '2026',
     stack: 'HTML · CSS · JavaScript',
     shot: capricciosaShot,
@@ -71,6 +60,17 @@ export const PROJECTS = [
     logoType: 'webp',
     url: 'https://sebbasv.github.io/Capricciosa/',
     frameUrl: 'sebbasv.github.io/Capricciosa',
+  },
+  {
+    id: 'sebtech',
+    index: '04',
+    year: '2026',
+    stack: 'HTML · SCSS · JavaScript',
+    shot: sebtechShot,
+    logo: sebtechLogo,
+    logoType: 'webp',
+    url: 'https://sebbasv.github.io/sebtech.github.io/',
+    frameUrl: 'sebbasv.github.io/sebtech.github.io',
   },
   {
     id: 'barbudos',
@@ -89,7 +89,7 @@ export const PROJECTS = [
  * The four projects the 3D hero walks through, in order. Every id needs its
  * four captures in public/hero/ (see README).
  */
-const HERO_IDS = ['oswaldo', 'manaba', 'sebtech', 'capricciosa']
+const HERO_IDS = ['oswaldo', 'manaba', 'capricciosa', 'sebtech']
 export const HERO_PROJECTS = HERO_IDS.map((id) => PROJECTS.find((p) => p.id === id))
 
 /** Projects built for real clients, i.e. everything but practice work. */
