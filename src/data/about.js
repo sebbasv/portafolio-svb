@@ -38,15 +38,25 @@ export const FACTS = {
 export const CURRENT_CITY = 'CABA'
 
 /**
- * Testimonial shown above the closing call to action. `placeholder: true`
- * renders it only in development, so a draft never reaches the live site;
- * a real quote has no flag.
+ * Testimonials shown above the closing call to action. `placeholder: true`
+ * renders an entry only in development, so a draft never reaches the live
+ * site; a real quote has no flag.
  */
-export const TESTIMONIAL = {
-  quote: {
-    es: 'Me encantó el servicio, pudo plasmar la esencia de mi negocio en una página web, haciéndola sobre todo útil.',
-    en: 'I loved the service. He captured the essence of my business in a website and, above all, made it useful.',
+export const TESTIMONIALS = [
+  {
+    quote: {
+      es: 'Me encantó el servicio, pudo plasmar la esencia de mi negocio en una página web, haciéndola sobre todo útil.',
+      en: 'I loved the service. He captured the essence of my business in a website and, above all, made it useful.',
+    },
+    name: 'Oriana Uzcategui',
+    role: { es: 'Capricciosa', en: 'Capricciosa' },
   },
-  name: 'Oriana Uzcategui',
-  role: { es: 'Capricciosa', en: 'Capricciosa' },
-}
+  {
+    quote: {
+      es: 'Me resultó muy útil la decisión de tener una página web, potenció mi trabajo de una gran manera.',
+      en: 'Deciding to have a website turned out to be really useful. It boosted my work in a big way.',
+    },
+    name: 'Oswaldo',
+    role: { es: 'Oval', en: 'Oval' },
+  },
+]

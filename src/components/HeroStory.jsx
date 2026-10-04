@@ -2,7 +2,7 @@ import { motion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 import PillButton from './PillButton'
 import SplitText from './SplitText'
-import { PROJECTS } from '../data/projects'
+import { HERO_PROJECTS as PROJECTS } from '../data/projects'
 import { WHATSAPP_URL } from '../data/site'
 import { useI18n } from '../lib/locale'
 
@@ -217,6 +217,7 @@ export default function HeroStory({ ready = true }) {
                 </h2>
                 <p className="type-label text-peach">
                   {copy.category}
+                  {project.practice && <span className="text-slate"> · {t('ui.practice')}</span>}
                 </p>
                 <p className="hidden max-w-md leading-relaxed text-slate lg:block">
                   {copy.description}

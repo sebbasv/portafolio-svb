@@ -9,6 +9,7 @@
  */
 
 import { FACTS } from './about'
+import { CLIENT_PROJECT_COUNT } from './projects'
 
 export const LOCALES = ['es', 'en']
 export const DEFAULT_LOCALE = 'es'
@@ -42,6 +43,7 @@ export const DICT = {
         'Desarrollo web a medida para negocios que necesitan aparecer mejor en internet y recibir clientes por WhatsApp.',
       liveSite: 'Ver sitio en vivo',
       inProgress: 'Sitio en preparación',
+      practice: 'Proyecto de práctica',
       viewProject: (name) =>
         `Visitar el sitio de ${name} (se abre en una pestaña nueva)`,
       shot: (name) => `Captura de pantalla del sitio ${name}`,
@@ -58,7 +60,7 @@ export const DICT = {
         { text: 'visitantes en clientes.', tone: 'peach' },
       ],
       sub: 'Desde landing pages hasta e-commerce. Soluciones escalables que hacen crecer tu marca.',
-      proof: '4 proyectos entregados · Respuesta en menos de 24 h',
+      proof: `${CLIENT_PROJECT_COUNT} proyectos para clientes · Respuesta en menos de 24 h`,
       ctaPrimary: 'Iniciar proyecto',
       ctaSecondary: 'Ver proyectos',
     },
@@ -71,6 +73,8 @@ export const DICT = {
       eyebrow: 'Trabajo reciente',
       title: 'Portafolio',
       count: (n) => `${String(n).padStart(2, '0')} proyectos`,
+      showMore: (n) => `Ver ${n} más`,
+      showLess: 'Ver menos',
       role: 'Rol',
       year: 'Año',
       stack: 'Stack',
@@ -100,6 +104,14 @@ export const DICT = {
         tags: ['Turnos', 'WhatsApp', 'Galería'],
         role: 'Diseño y desarrollo',
       },
+      oswaldo: {
+        name: 'Oswaldo Traslados',
+        category: 'Landing Page / Reservas por WhatsApp',
+        description:
+          'Landing nocturna con un viaje animado de CABA a Ezeiza, pensada para que el pasajero reserve su traslado en dos toques.',
+        tags: ['Reservas', 'WhatsApp', 'Animación'],
+        role: 'Diseño y desarrollo',
+      },
       capricciosa: {
         name: 'Capricciosa Postres',
         category: 'Landing Page / Delivery Local',
@@ -114,28 +126,59 @@ export const DICT = {
       titleLines: ['Del primer', 'clic a la venta'],
       lead:
         'Construyo sitios pensados para una sola cosa: que alguien que llega desde un anuncio termine hablando con vos por WhatsApp.',
+      from: 'Desde',
       items: [
         {
           title: 'Landing pages',
+          price: '$250.000',
           whatsapp: 'Hola Sebastián, quiero una landing page',
           text: 'Páginas de una sola pantalla, cargadas rápido y diseñadas para que el visitante pase a la acción.',
         },
         {
-          title: 'E-commerce',
-          whatsapp: 'Hola Sebastián, quiero una tienda online',
-          text: 'Catálogos y carritos rápidos, con un recorrido pensado para que nadie se pierda en el camino a la compra.',
+          title: 'Sistemas de turnos',
+          price: '$350.000',
+          whatsapp: 'Hola Sebastián, quiero una landing con turnos o pedidos por WhatsApp',
+          text: 'Una landing con turnos o pedidos que llegan directo a tu WhatsApp, para no perder clientes por llamadas sin atender.',
         },
         {
           title: 'Sitios institucionales',
+          price: '$450.000',
           whatsapp: 'Hola Sebastián, quiero un sitio institucional',
-          text: 'Presencia seria para negocios de servicios: identidad clara, información ordenada y contacto directo.',
+          text: 'Hasta 5–7 páginas para negocios de servicios: identidad clara, información ordenada y contacto directo.',
         },
         {
-          title: 'Sistemas de turnos',
-          whatsapp: 'Hola Sebastián, quiero un sistema de turnos',
-          text: 'Reservas y agenda conectados a WhatsApp, para que tu equipo reciba los pedidos sin llamadas perdidas.',
+          title: 'E-commerce',
+          price: '$650.000',
+          whatsapp: 'Hola Sebastián, quiero una tienda online',
+          text: 'Catálogo con filtros y carrito que arma el pedido y lo manda por WhatsApp, sin que nadie se pierda en el camino.',
         },
       ],
+      currencyNote: 'Precios en pesos argentinos, para clientes en Argentina.',
+      extrasTitle: 'Extras',
+      extras: [
+        { label: 'Página adicional', price: '$60.000' },
+        { label: 'Versión bilingüe ES/EN', price: '+25%' },
+        { label: 'Mantenimiento mensual', price: '$20.000/mes' },
+        { label: 'Hora de trabajo fuera de alcance', price: '$15.000' },
+      ],
+      maintenanceTitle: 'Mantenimiento',
+      maintenance:
+        'Después del lanzamiento me puedo encargar yo de tu sitio: cambios chicos, actualizar precios o fotos y soporte cuando algo falla, sin que tengas que tocar nada.',
+      maintenancePrice: 'Desde $20.000 por mes',
+      termsTitle: 'Condiciones',
+      terms: [
+        {
+          title: 'Precio de lanzamiento',
+          text: '15–20% de descuento para los próximos 3 clientes, a cambio de un testimonio.',
+        },
+        { title: 'Forma de pago', text: '50% de anticipo para empezar y 50% al entregar.' },
+        {
+          title: 'Dominio y hosting',
+          text: 'Se pagan aparte y corren por cuenta del cliente (por ejemplo, tu dominio .com.ar).',
+        },
+      ],
+      quote: 'Pedir presupuesto',
+      quoteWhatsapp: 'Hola Sebastián, quiero un presupuesto para mi sitio web',
     },
     process: {
       eyebrow: 'Cómo trabajo',
@@ -145,25 +188,31 @@ export const DICT = {
         { title: 'Brief', text: 'Charlamos por WhatsApp o videollamada: qué vendés, a quién y qué tiene que lograr el sitio.' },
         { title: 'Diseño', text: 'Te muestro la propuesta visual de las pantallas clave y la ajustamos antes de escribir código.' },
         { title: 'Desarrollo', text: 'Construyo el sitio rápido y responsive, y te comparto un link para que lo revises en tu celular.' },
-        { title: 'Lanzamiento', text: 'Lo publicamos con tu dominio, conectado a WhatsApp, y te explico cómo actualizarlo.' },
+        { title: 'Lanzamiento', text: 'Lo publicamos con tu dominio, conectado a WhatsApp. Te explico cómo actualizarlo, o me encargo yo con el mantenimiento mensual.' },
       ],
     },
     about: {
       eyebrow: 'Sobre mí',
       titleLines: ['Detrás de', 'cada proyecto'],
       techLabel: 'Con qué trabajo',
+      educationLabel: 'Formación',
+      education: [
+        { title: 'Ingeniería en Sistemas de Información', place: 'UTN', note: 'En curso' },
+        { title: 'Inteligencia artificial', place: 'Big School', note: '2 cursos' },
+        { title: 'Desarrollo web', place: 'Coder House', note: 'Completado' },
+      ],
       journeyNote: (years) => `Venezuela · ${years} años en Argentina`,
       summary:
-        'Soy Sebastián, desarrollador web venezolano radicado en CABA. Estudié programación web en Coder House y me dedico al 100% a construir sitios que resuelven problemas concretos de cada negocio.',
+        'Soy Sebastián, desarrollador web venezolano radicado en CABA. Estudio Ingeniería en Sistemas de Información en la UTN y construyo sitios que resuelven problemas concretos de cada negocio.',
       readMore: 'Leer más',
       readLess: 'Leer menos',
       bio: [
         `Me llamo Sebastián de Jesús Valecillos Blanco, tengo ${FACTS.age} años y vengo de Venezuela. Llegué a Argentina con ${FACTS.movedAtAge} años, así que crecí entre dos países y eso me dejó con la costumbre de adaptarme rápido y de no dar por sentado nada.`,
-        'Estudié programación web en Coder House, y desde entonces el desarrollo se volvió mi forma de pensar las cosas. Me apasiona ese momento en que una idea que tenías en la cabeza de repente existe en pantalla y alguien la puede usar.',
+        'Estudio Ingeniería en Sistemas de Información en la UTN. Antes me formé en programación web en Coder House y completé dos cursos de inteligencia artificial en Big School. El desarrollo se volvió mi forma de pensar las cosas: me apasiona ese momento en que una idea que tenías en la cabeza de repente existe en pantalla y alguien la puede usar.',
         'Me dedico al 100% a esto porque creo que la tecnología bien usada resuelve problemas concretos: le ahorra tiempo a alguien, le muestra algo que no sabía, o le abre una salida donde no la había. Quiero seguir creciendo en esto y ayudar a las personas a resolver las necesidades que tienen.',
       ],
       stats: [
-        { value: '4', label: 'Proyectos entregados' },
+        { value: String(CLIENT_PROJECT_COUNT), label: 'Proyectos para clientes' },
         { value: '<24 h', label: 'De respuesta' },
         { value: 'React', label: '+ Tailwind CSS' },
       ],
@@ -226,6 +275,7 @@ export const DICT = {
         'Bespoke web development for businesses that need to show up better online and win customers over WhatsApp.',
       liveSite: 'View live site',
       inProgress: 'Site in progress',
+      practice: 'Practice project',
       viewProject: (name) => `Visit the ${name} site (opens in a new tab)`,
       shot: (name) => `Screenshot of the ${name} site`,
       ctaWhatsapp:
@@ -241,7 +291,7 @@ export const DICT = {
         { text: 'visitors into customers.', tone: 'peach' },
       ],
       sub: 'From landing pages to e-commerce. Scalable solutions that grow your brand.',
-      proof: '4 projects delivered · Replies within 24 h',
+      proof: `${CLIENT_PROJECT_COUNT} client projects · Replies within 24 h`,
       ctaPrimary: 'Start a project',
       ctaSecondary: 'See the work',
     },
@@ -254,6 +304,8 @@ export const DICT = {
       eyebrow: 'Recent work',
       title: 'Portfolio',
       count: (n) => `${String(n).padStart(2, '0')} projects`,
+      showMore: (n) => `Show ${n} more`,
+      showLess: 'Show less',
       role: 'Role',
       year: 'Year',
       stack: 'Stack',
@@ -283,6 +335,14 @@ export const DICT = {
         tags: ['Appointments', 'WhatsApp', 'Gallery'],
         role: 'Design and development',
       },
+      oswaldo: {
+        name: 'Oswaldo Traslados',
+        category: 'Landing Page / WhatsApp Bookings',
+        description:
+          'A night-time landing page with an animated drive from Buenos Aires to Ezeiza airport, built so passengers can book a ride in two taps.',
+        tags: ['Bookings', 'WhatsApp', 'Animation'],
+        role: 'Design and development',
+      },
       capricciosa: {
         name: 'Capricciosa Postres',
         category: 'Landing Page / Local Delivery',
@@ -296,28 +356,56 @@ export const DICT = {
       eyebrow: 'What I do',
       titleLines: ['From the first', 'click to the sale'],
       lead: 'I build sites with a single goal in mind: that someone arriving from an ad ends up talking to you over WhatsApp.',
+      from: 'From',
       items: [
         {
           title: 'Landing pages',
+          price: 'USD 220',
           whatsapp: 'Hi Sebastián, I would like a landing page',
           text: 'Single-screen pages that load fast and are built to move the visitor to action.',
         },
         {
-          title: 'E-commerce',
-          whatsapp: 'Hi Sebastián, I would like an online store',
-          text: 'Fast catalogues and carts, with a flow designed so nobody gets lost on the way to checkout.',
+          title: 'Booking systems',
+          price: 'USD 300',
+          whatsapp: 'Hi Sebastián, I would like a landing page with WhatsApp bookings or orders',
+          text: 'A landing page whose bookings or orders land straight in your WhatsApp, so no customer is lost to a missed call.',
         },
         {
           title: 'Corporate sites',
+          price: 'USD 400',
           whatsapp: 'Hi Sebastián, I would like a corporate site',
-          text: 'A serious presence for service businesses: clear identity, organised information and direct contact.',
+          text: 'Up to 5–7 pages for service businesses: clear identity, organised information and direct contact.',
         },
         {
-          title: 'Booking systems',
-          whatsapp: 'Hi Sebastián, I would like a booking system',
-          text: 'Reservations and scheduling wired to WhatsApp, so your team takes orders without missing calls.',
+          title: 'E-commerce',
+          price: 'USD 550',
+          whatsapp: 'Hi Sebastián, I would like an online store',
+          text: 'A catalogue with filters and a cart that builds the order and sends it over WhatsApp, so nobody gets lost on the way.',
         },
       ],
+      currencyNote: 'Prices in US dollars.',
+      extrasTitle: 'Extras',
+      extras: [
+        { label: 'Additional page', price: 'USD 45' },
+        { label: 'Bilingual ES/EN version', price: '+25%' },
+        { label: 'Monthly maintenance', price: 'USD 20/mo' },
+        { label: 'Out-of-scope work, per hour', price: 'USD 15' },
+      ],
+      maintenanceTitle: 'Maintenance',
+      maintenance:
+        'After launch I can look after your site for you: small changes, updated prices or photos, and support when something breaks, without you having to touch a thing.',
+      maintenancePrice: 'From USD 20 per month',
+      termsTitle: 'Terms',
+      terms: [
+        {
+          title: 'Launch pricing',
+          text: '15–20% off for my next 3 clients, in exchange for a testimonial.',
+        },
+        { title: 'Payment', text: '50% upfront to get started and 50% on delivery.' },
+        { title: 'Domain and hosting', text: 'Billed separately and paid by the client.' },
+      ],
+      quote: 'Get a quote',
+      quoteWhatsapp: 'Hi Sebastián, I would like a quote for my website',
     },
     process: {
       eyebrow: 'How I work',
@@ -327,25 +415,31 @@ export const DICT = {
         { title: 'Brief', text: 'We talk over WhatsApp or a video call: what you sell, to whom and what the site has to achieve.' },
         { title: 'Design', text: 'I show you the visual direction for the key screens and we refine it before any code is written.' },
         { title: 'Development', text: 'I build a fast, responsive site and send you a link so you can review it on your phone.' },
-        { title: 'Launch', text: 'We publish it on your domain, wired to WhatsApp, and I show you how to keep it up to date.' },
+        { title: 'Launch', text: 'We publish it on your domain, wired to WhatsApp. I show you how to update it, or I look after it for you with monthly maintenance.' },
       ],
     },
     about: {
       eyebrow: 'About me',
       titleLines: ['Behind', 'every project'],
       techLabel: 'What I work with',
+      educationLabel: 'Education',
+      education: [
+        { title: 'Information Systems Engineering', place: 'UTN', note: 'In progress' },
+        { title: 'Artificial intelligence', place: 'Big School', note: '2 courses' },
+        { title: 'Web development', place: 'Coder House', note: 'Completed' },
+      ],
       journeyNote: (years) => `Venezuela · ${years} years in Argentina`,
       summary:
-        'I am Sebastián, a Venezuelan web developer based in Buenos Aires. I studied web programming at Coder House and work full-time building sites that solve each business’s concrete problems.',
+        'I am Sebastián, a Venezuelan web developer based in Buenos Aires. I study Information Systems Engineering at UTN and build sites that solve each business’s concrete problems.',
       readMore: 'Read more',
       readLess: 'Read less',
       bio: [
         `My name is Sebastián de Jesús Valecillos Blanco. I am ${FACTS.age} and I come from Venezuela. I moved to Argentina at ${FACTS.movedAtAge}, so I grew up between two countries, which left me used to adapting fast and taking nothing for granted.`,
-        'I studied web programming at Coder House, and since then development has become how I think. I love that moment when an idea in your head suddenly exists on screen and someone can actually use it.',
+        'I study Information Systems Engineering at UTN (Universidad Tecnológica Nacional). Before that I trained in web programming at Coder House and completed two artificial intelligence courses at Big School. Development has become how I think: I love that moment when an idea in your head suddenly exists on screen and someone can actually use it.',
         'I am 100% committed to this because I think technology, used well, solves concrete problems: it saves someone time, shows them something they did not know, or opens a door that was not there before. I want to keep growing in this and help people with the needs they have.',
       ],
       stats: [
-        { value: '4', label: 'Projects delivered' },
+        { value: String(CLIENT_PROJECT_COUNT), label: 'Client projects' },
         { value: '<24 h', label: 'Response time' },
         { value: 'React', label: '+ Tailwind CSS' },
       ],

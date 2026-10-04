@@ -1,4 +1,5 @@
 import { motion } from 'motion/react'
+import { useId, useState } from 'react'
 import BrowserFrame from './BrowserFrame'
 import PillButton from './PillButton'
 import TiltedCard from './TiltedCard'
@@ -97,6 +98,13 @@ function ProjectCard({ project, index }) {
           </span>
         </div>
 
+        {project.practice && (
+          <span className="type-label mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-white/[0.04] px-3 py-1.5 text-mist ring-1 ring-white/10">
+            <span className="h-1.5 w-1.5 rounded-full bg-slate" aria-hidden="true" />
+            {t('ui.practice')}
+          </span>
+        )}
+
         <h3 className="type-display-md mt-4 text-bone">
           {copy.name}
         </h3>
@@ -150,15 +158,23 @@ function ProjectCard({ project, index }) {
   )
 }
 
+/** Cards shown before "Show more"; the rest stay one click away. */
+const VISIBLE = 4
+
 /**
  * Portfolio — the case-study gallery.
  *
  * Laid out on a 12-column grid with alternating spans and a vertical offset
- * on the narrow column, so the four projects read as an editorial spread
- * rather than a uniform card grid.
+ * on the narrow column, so the projects read as an editorial spread rather
+ * than a uniform card grid. Only the first four are shown up front so the
+ * section never turns into a wall of screenshots.
  */
 export default function Portfolio() {
   const { t } = useI18n()
+  const [expanded, setExpanded] = useState(false)
+  const moreId = useId()
+  const hidden = PROJECTS.length - VISIBLE
+
   return (
     <section id="proyectos" className="relative py-24 md:py-32">
       <div className="shell">
@@ -169,10 +185,43 @@ export default function Portfolio() {
         />
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-20 lg:grid-cols-12 lg:gap-y-28">
-          {PROJECTS.map((project, i) => (
+          {PROJECTS.slice(0, VISIBLE).map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
+          {/* display: contents keeps the extra cards on the same grid. */}
+          <div id={moreId} className="contents">
+            {expanded &&
+              PROJECTS.slice(VISIBLE).map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={VISIBLE + i} />
+              ))}
+          </div>
         </div>
+
+        {hidden > 0 && (
+          <div className="mt-20 flex justify-center border-t border-white/8 pt-10 lg:mt-28">
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              aria-expanded={expanded}
+              aria-controls={moreId}
+              className="type-button group inline-flex h-12 items-center gap-2.5 rounded-full border border-white/14 px-7 text-mist transition-colors duration-500 hover:border-peach hover:text-peach"
+            >
+              {expanded ? t('work.showLess') : t('work.showMore')(hidden)}
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                className={`h-3.5 w-3.5 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
+              >
+                <path d="M3.5 6 8 10.5 12.5 6" />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )
