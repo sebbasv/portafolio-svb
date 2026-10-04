@@ -1,4 +1,5 @@
 import { motion } from 'motion/react'
+import PillButton from './PillButton'
 import SplitText from './SplitText'
 import { whatsappWith } from '../data/site'
 import { useI18n } from '../lib/locale'
@@ -87,7 +88,15 @@ export default function Services() {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div className="flex-1">
-                    <h3 className="type-title text-mist">{service.title}</h3>
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                      <h3 className="type-title text-mist">{service.title}</h3>
+                      <p className="type-label text-slate">
+                        {t('services.from')}{' '}
+                        <span className="font-display text-lg tracking-normal text-peach">
+                          {service.price}
+                        </span>
+                      </p>
+                    </div>
                     <p className="mt-2 max-w-lg text-sm leading-relaxed text-slate md:text-base">
                       {service.text}
                     </p>
@@ -112,7 +121,82 @@ export default function Services() {
             ))}
           </ul>
         </div>
+
+        <PricingDetails />
       </div>
     </section>
+  )
+}
+
+/** Small uppercase heading shared by the three pricing columns. */
+function ColumnTitle({ children }) {
+  return <h3 className="type-label border-b border-white/8 pb-4 text-peach">{children}</h3>
+}
+
+/**
+ * Extras, maintenance and terms: what a client needs to know before asking
+ * for a quote, under the service list so the prices above stay scannable.
+ */
+function PricingDetails() {
+  const { t } = useI18n()
+  const extras = t('services.extras')
+  const terms = t('services.terms')
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="mt-20 grid gap-12 md:grid-cols-2 lg:mt-28 lg:grid-cols-3 lg:gap-10"
+    >
+      <div>
+        <ColumnTitle>{t('services.extrasTitle')}</ColumnTitle>
+        <dl>
+          {extras.map((extra) => (
+            <div
+              key={extra.label}
+              className="flex items-baseline justify-between gap-6 border-b border-white/8 py-4"
+            >
+              <dt className="text-sm text-mist md:text-base">{extra.label}</dt>
+              <dd className="type-body-sm shrink-0 font-medium text-peach">{extra.price}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="type-body-sm mt-4 text-slate">{t('services.currencyNote')}</p>
+      </div>
+
+      <div>
+        <ColumnTitle>{t('services.maintenanceTitle')}</ColumnTitle>
+        <p className="mt-4 text-sm leading-relaxed text-mist md:text-base">
+          {t('services.maintenance')}
+        </p>
+        <p className="type-body-sm mt-4 font-medium text-peach">
+          {t('services.maintenancePrice')}
+        </p>
+      </div>
+
+      <div className="md:col-span-2 lg:col-span-1">
+        <ColumnTitle>{t('services.termsTitle')}</ColumnTitle>
+        <ul>
+          {terms.map((term) => (
+            <li key={term.title} className="border-b border-white/8 py-4">
+              <p className="text-sm font-medium text-mist md:text-base">{term.title}</p>
+              <p className="mt-1 text-sm leading-relaxed text-slate">{term.text}</p>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-8">
+          <PillButton
+            href={whatsappWith(t('services.quoteWhatsapp'))}
+            variant="primary"
+            size="md"
+            withArrow
+          >
+            {t('services.quote')}
+          </PillButton>
+        </div>
+      </div>
+    </motion.div>
   )
 }

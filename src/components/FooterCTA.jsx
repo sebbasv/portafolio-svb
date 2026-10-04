@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import BrandMark from './BrandMark'
 import SplitText from './SplitText'
-import { TESTIMONIAL } from '../data/about'
+import { TESTIMONIALS } from '../data/about'
 import {
   EMAIL,
   GITHUB_URL,
@@ -72,30 +72,38 @@ function GiantCta() {
 }
 
 /**
- * Testimonial — social proof right before the ask. A placeholder entry
- * (`placeholder: true` in src/data/about.js) only shows in development.
+ * Testimonials — social proof right before the ask. Placeholder entries
+ * (`placeholder: true` in src/data/about.js) only show in development.
  */
-function Testimonial() {
+function Testimonials() {
   const { locale, t } = useI18n()
-  if (!TESTIMONIAL || (TESTIMONIAL.placeholder && !import.meta.env.DEV)) return null
+  const quotes = TESTIMONIALS.filter((q) => !q.placeholder || import.meta.env.DEV)
+  if (quotes.length === 0) return null
 
   return (
-    <motion.figure
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="mx-auto mb-20 max-w-2xl border-b border-white/8 pb-16 text-center md:mb-24"
-    >
+    <div className="mx-auto mb-20 max-w-5xl border-b border-white/8 pb-16 text-center md:mb-24">
       <span className="type-label text-slate">{t('cta.testimonialLabel')}</span>
-      <blockquote className="mt-6 text-xl leading-relaxed text-mist md:text-2xl">
-        <p>“{TESTIMONIAL.quote[locale]}”</p>
-      </blockquote>
-      <figcaption className="mt-6">
-        <span className="type-title block text-mist">{TESTIMONIAL.name}</span>
-        <span className="type-label mt-1 block text-slate">{TESTIMONIAL.role[locale]}</span>
-      </figcaption>
-    </motion.figure>
+      <div className={`mt-8 grid gap-12 ${quotes.length > 1 ? 'md:grid-cols-2 md:gap-10' : ''}`}>
+        {quotes.map((q, i) => (
+          <motion.figure
+            key={q.name}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="mx-auto flex max-w-2xl flex-col justify-between"
+          >
+            <blockquote className="text-xl leading-relaxed text-mist md:text-2xl">
+              <p>“{q.quote[locale]}”</p>
+            </blockquote>
+            <figcaption className="mt-6">
+              <span className="type-title block text-mist">{q.name}</span>
+              <span className="type-label mt-1 block text-slate">{q.role[locale]}</span>
+            </figcaption>
+          </motion.figure>
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -121,7 +129,7 @@ export default function FooterCTA() {
       />
 
       <div className="shell">
-        <Testimonial />
+        <Testimonials />
       </div>
 
       <div className="shell flex flex-col items-center text-center">

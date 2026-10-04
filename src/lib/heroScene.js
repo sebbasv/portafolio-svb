@@ -1220,7 +1220,7 @@ export function createHeroScene({
     g.font = '500 13.5px Inter, system-ui, sans-serif'
     g.textAlign = 'center'
     g.textBaseline = 'middle'
-    const short = host.replace('sebastiancr1324-sketch.', '')
+    const short = host.replace('sebbasv.', '')
     g.fillText(short, 195, 32.5)
     g.fillStyle = '#6e6e73'
     drawLock(g, 195 - g.measureText(short).width / 2 - 13, 33)

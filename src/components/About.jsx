@@ -140,6 +140,7 @@ export default function About() {
   const stats = t('about.stats')
   const drivers = t('about.drivers')
   const tech = t('tech')
+  const education = t('about.education')
 
   return (
     <section
@@ -223,6 +224,41 @@ export default function About() {
                     className="type-label rounded-full bg-white/[0.04] px-3 py-1.5 text-mist ring-1 ring-white/8 transition-colors duration-500 hover:text-peach hover:ring-peach/40"
                   >
                     {item}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Education: university first, then the courses. */}
+            <div className="mt-14">
+              <motion.h3
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="type-label text-slate"
+              >
+                {t('about.educationLabel')}
+              </motion.h3>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-3">
+                {education.map((item, i) => (
+                  <motion.li
+                    key={item.place}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: i * 0.08,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    className="rounded-xl bg-white/[0.03] p-5 ring-1 ring-white/8"
+                  >
+                    <p className="type-label text-peach">{item.place}</p>
+                    <p className="mt-3 text-sm font-medium leading-snug text-mist md:text-base">
+                      {item.title}
+                    </p>
+                    <p className="type-body-sm mt-2 text-slate">{item.note}</p>
                   </motion.li>
                 ))}
               </ul>

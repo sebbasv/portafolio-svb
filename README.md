@@ -54,7 +54,8 @@ pantalla, donde los proyectos flotan como ventanas.
 Las capturas que muestran las pantallas están en `public/hero/` (por proyecto:
 `-desk` y `-mob` con el contenido, `-desk-ov` y `-mob-ov` con lo que queda
 fijo arriba, como el menú). Al agregar un proyecto hay que sumar sus cuatro
-capturas con el mismo `id` que en `src/data/projects.js`.
+capturas con el mismo `id` que en `src/data/projects.js`. Qué proyectos pasan
+por el hero, y en qué orden, se elige en `HERO_IDS` en ese mismo archivo.
 
 Sin WebGL 2 se muestra una captura fija; con "reducir movimiento" no hay
 caída ni vuelo de cámara.

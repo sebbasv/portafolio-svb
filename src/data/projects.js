@@ -1,10 +1,12 @@
 import barbudosShot from '../assets/projects/barbudos.webp'
 import capricciosaShot from '../assets/projects/Capricciosa.webp'
 import manabaShot from '../assets/projects/ManabaCafe.webp'
+import oswaldoShot from '../assets/projects/oswaldo.webp'
 import sebtechShot from '../assets/projects/Sebtech.webp'
 import barbudosLogo from '../assets/projects/logo-barbudos.svg'
 import capricciosaLogo from '../assets/projects/logo-capricciosa.webp'
 import manabaLogo from '../assets/projects/logo-manaba.svg'
+import oswaldoLogo from '../assets/projects/logo-oswaldo.svg'
 import sebtechLogo from '../assets/projects/logo-sebtech.webp'
 
 /**
@@ -19,6 +21,9 @@ import sebtechLogo from '../assets/projects/logo-sebtech.webp'
  *
  * `url` is only set for projects that are actually published on GitHub Pages.
  * Cards render a neutral state when it is null, so we never link to a 404.
+ *
+ * `practice: true` marks a self-initiated project with no real client behind
+ * it; the card labels it so, and it is left out of the delivered-projects count.
  */
 export const PROJECTS = [
   {
@@ -29,9 +34,10 @@ export const PROJECTS = [
     shot: manabaShot,
     logo: manabaLogo,
     logoType: 'svg',
-    url: 'https://sebastiancr1324-sketch.github.io/Manaba.github.io/',
+    practice: true,
+    url: 'https://sebbasv.github.io/Manaba.github.io/',
     // Text shown in the mock browser's address bar.
-    frameUrl: 'sebastiancr1324-sketch.github.io/Manaba.github.io',
+    frameUrl: 'sebbasv.github.io/Manaba.github.io',
   },
   {
     id: 'sebtech',
@@ -41,19 +47,19 @@ export const PROJECTS = [
     shot: sebtechShot,
     logo: sebtechLogo,
     logoType: 'webp',
-    url: 'https://sebastiancr1324-sketch.github.io/sebtech.github.io/',
-    frameUrl: 'sebastiancr1324-sketch.github.io/sebtech.github.io',
+    url: 'https://sebbasv.github.io/sebtech.github.io/',
+    frameUrl: 'sebbasv.github.io/sebtech.github.io',
   },
   {
-    id: 'barbudos',
+    id: 'oswaldo',
     index: '03',
     year: '2026',
     stack: 'HTML · CSS · JavaScript',
-    shot: barbudosShot,
-    logo: barbudosLogo,
+    shot: oswaldoShot,
+    logo: oswaldoLogo,
     logoType: 'svg',
-    url: 'https://sebastiancr1324-sketch.github.io/Barbudos/',
-    frameUrl: 'sebastiancr1324-sketch.github.io/Barbudos',
+    url: 'https://sebbasv.github.io/Oswaldo/',
+    frameUrl: 'sebbasv.github.io/Oswaldo',
   },
   {
     id: 'capricciosa',
@@ -63,7 +69,28 @@ export const PROJECTS = [
     shot: capricciosaShot,
     logo: capricciosaLogo,
     logoType: 'webp',
-    url: 'https://sebastiancr1324-sketch.github.io/Capricciosa/',
-    frameUrl: 'sebastiancr1324-sketch.github.io/Capricciosa',
+    url: 'https://sebbasv.github.io/Capricciosa/',
+    frameUrl: 'sebbasv.github.io/Capricciosa',
+  },
+  {
+    id: 'barbudos',
+    index: '05',
+    year: '2026',
+    stack: 'HTML · CSS · JavaScript',
+    shot: barbudosShot,
+    logo: barbudosLogo,
+    logoType: 'svg',
+    url: 'https://sebbasv.github.io/Barbudos/',
+    frameUrl: 'sebbasv.github.io/Barbudos',
   },
 ]
+
+/**
+ * The four projects the 3D hero walks through, in order. Every id needs its
+ * four captures in public/hero/ (see README).
+ */
+const HERO_IDS = ['manaba', 'sebtech', 'oswaldo', 'capricciosa']
+export const HERO_PROJECTS = HERO_IDS.map((id) => PROJECTS.find((p) => p.id === id))
+
+/** Projects built for real clients, i.e. everything but practice work. */
+export const CLIENT_PROJECT_COUNT = PROJECTS.filter((p) => !p.practice).length
