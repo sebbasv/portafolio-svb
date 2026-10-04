@@ -27,8 +27,19 @@ import sebtechLogo from '../assets/projects/logo-sebtech.webp'
  */
 export const PROJECTS = [
   {
-    id: 'manaba',
+    id: 'oswaldo',
     index: '01',
+    year: '2026',
+    stack: 'HTML · CSS · JavaScript',
+    shot: oswaldoShot,
+    logo: oswaldoLogo,
+    logoType: 'svg',
+    url: 'https://sebbasv.github.io/Oswaldo/',
+    frameUrl: 'sebbasv.github.io/Oswaldo',
+  },
+  {
+    id: 'manaba',
+    index: '02',
     year: '2026',
     stack: 'HTML · SCSS · JavaScript',
     shot: manabaShot,
@@ -41,7 +52,7 @@ export const PROJECTS = [
   },
   {
     id: 'sebtech',
-    index: '02',
+    index: '03',
     year: '2026',
     stack: 'HTML · SCSS · JavaScript',
     shot: sebtechShot,
@@ -49,17 +60,6 @@ export const PROJECTS = [
     logoType: 'webp',
     url: 'https://sebbasv.github.io/sebtech.github.io/',
     frameUrl: 'sebbasv.github.io/sebtech.github.io',
-  },
-  {
-    id: 'oswaldo',
-    index: '03',
-    year: '2026',
-    stack: 'HTML · CSS · JavaScript',
-    shot: oswaldoShot,
-    logo: oswaldoLogo,
-    logoType: 'svg',
-    url: 'https://sebbasv.github.io/Oswaldo/',
-    frameUrl: 'sebbasv.github.io/Oswaldo',
   },
   {
     id: 'capricciosa',
@@ -89,7 +89,7 @@ export const PROJECTS = [
  * The four projects the 3D hero walks through, in order. Every id needs its
  * four captures in public/hero/ (see README).
  */
-const HERO_IDS = ['manaba', 'sebtech', 'oswaldo', 'capricciosa']
+const HERO_IDS = ['oswaldo', 'manaba', 'sebtech', 'capricciosa']
 export const HERO_PROJECTS = HERO_IDS.map((id) => PROJECTS.find((p) => p.id === id))
 
 /** Projects built for real clients, i.e. everything but practice work. */

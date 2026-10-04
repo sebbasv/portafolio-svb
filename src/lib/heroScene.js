@@ -4,7 +4,7 @@ import * as THREE from 'three'
      lid      the lid swings open
      power    both panels wake
      build    the page assembles itself, block by block
-     reveal   the wireframe gives way to the real Manaba site
+     reveal   the wireframe gives way to the real site of the first project
      projects four projects, each scrolled then swiped to the next
      dive     the camera flies into the laptop screen
      windows  inside: the projects float as windows, then line up */
@@ -1233,53 +1233,47 @@ export function createHeroScene({
 
   /* Wireframe build: the page appears as layout blocks first (a designer's
    grid, outlines, then fills), with a cursor placing each one. Laid out like
-   Manaba's own first screen so the real page lands right on top of it. */
+   the first project's own first screen (Oswaldo Traslados: night sky, road
+   and car) so the real page lands right on top of it. */
   const WIRE = {
     desk: {
       w: 1440,
       h: 848,
-      bg: '#f6f2ec',
+      bg: '#0b1226',
       grid: [120, 1320, 12],
       blocks: [
-        ['rect', 120, 22, 44, 44, '#e3d8cb', 12],
-        ['rect', 176, 28, 96, 14, '#4a3628', 3],
-        ['rect', 176, 50, 150, 7, '#b8a898', 3],
-        ['links', 760, 40, 400, 8, '#6f5b4b'],
-        ['rect', 1180, 26, 140, 38, '#5b3f2c', 6],
-        ['rect', 120, 210, 320, 9, '#a08f7e', 3],
-        ['rect', 120, 244, 520, 58, '#3f2b1f', 8],
-        ['rect', 120, 312, 450, 58, '#3f2b1f', 8],
-        ['rect', 120, 380, 540, 58, '#3f2b1f', 8],
-        ['rect', 120, 466, 470, 11, '#a89989', 4],
-        ['rect', 120, 488, 410, 11, '#a89989', 4],
-        ['rect', 120, 532, 180, 50, '#5b3f2c', 6],
-        ['rect', 326, 552, 112, 10, '#4a3628', 3],
-        ['arch', 820, 96, 440, 640, '#c9b8a5'],
-        ['circle', 1180, 112, 124, 124, '#5b3f2c'],
-        ['card', 760, 620, 250, 86, '#ffffff', 12],
+        ['rect', 200, 143, 234, 10, '#d9a514', 3],
+        ['rect', 200, 192, 552, 64, '#eef1f6', 8],
+        ['rect', 200, 292, 378, 64, '#f5b80b', 8],
+        ['rect', 200, 404, 600, 12, '#7d88a3', 4],
+        ['rect', 200, 436, 400, 12, '#7d88a3', 4],
+        ['rect', 200, 482, 176, 50, '#f5b80b', 25],
+        ['rect', 389, 482, 187, 50, '#2c3753', 25],
+        ['rect', 0, 596, 1440, 252, '#161e33', 0],
+        ['rect', 858, 442, 186, 70, '#1f6b45', 6],
+        ['rect', 900, 645, 355, 140, '#e6e9ef', 34],
+        ['rect', 200, 817, 1040, 3, '#b8901c', 1],
+        ['circle', 240, 809, 20, 20, '#f5b80b'],
       ],
     },
     mob: {
       w: 390,
       h: 797,
-      bg: '#f6f2ec',
+      bg: '#0b1226',
       grid: [16, 374, 4],
       blocks: [
-        ['rect', 16, 12, 36, 36, '#e3d8cb', 10],
-        ['rect', 60, 18, 80, 12, '#4a3628', 3],
-        ['rect', 60, 36, 110, 6, '#b8a898', 3],
-        ['circle', 338, 12, 36, 36, '#e3d8cb'],
-        ['rect', 16, 104, 230, 8, '#a08f7e', 3],
-        ['rect', 16, 128, 300, 40, '#3f2b1f', 6],
-        ['rect', 16, 174, 250, 40, '#3f2b1f', 6],
-        ['rect', 16, 220, 320, 40, '#3f2b1f', 6],
-        ['rect', 16, 282, 330, 9, '#a89989', 3],
-        ['rect', 16, 298, 300, 9, '#a89989', 3],
-        ['rect', 16, 314, 180, 9, '#a89989', 3],
-        ['rect', 16, 344, 150, 44, '#5b3f2c', 6],
-        ['rect', 186, 362, 80, 8, '#4a3628', 3],
-        ['arch', 16, 420, 358, 330, '#c9b8a5'],
-        ['circle', 290, 404, 84, 84, '#5b3f2c'],
+        ['rect', 16, 141, 234, 8, '#d9a514', 3],
+        ['rect', 16, 178, 276, 36, '#eef1f6', 6],
+        ['rect', 16, 228, 186, 34, '#f5b80b', 6],
+        ['rect', 16, 289, 330, 10, '#7d88a3', 3],
+        ['rect', 16, 316, 330, 10, '#7d88a3', 3],
+        ['rect', 16, 343, 196, 10, '#7d88a3', 3],
+        ['rect', 16, 388, 178, 48, '#f5b80b', 24],
+        ['rect', 16, 450, 188, 48, '#2c3753', 24],
+        ['rect', 0, 592, 390, 205, '#161e33', 0],
+        ['rect', 116, 684, 172, 72, '#e6e9ef', 18],
+        ['rect', 16, 775, 358, 3, '#b8901c', 1],
+        ['circle', 58, 768, 16, 16, '#f5b80b'],
       ],
     },
   }
@@ -1975,8 +1969,8 @@ export function createHeroScene({
   const followPointer = matchMedia('(hover: hover) and (pointer: fine)').matches && !reduce
   if (followPointer) addEventListener('pointermove', onPointer, { passive: true })
 
-  // Legends wait for the web font. Manaba (the first page shown) loads right
-  // away; the drop starts on start(), once Manaba is in or after two seconds.
+  // Legends wait for the web font. The first page shown loads right
+  // away; the drop starts on start(), once it is in or after two seconds.
   document.fonts.ready.then(() => {
     if (disposed) return
     legendMat.map = legendMat.emissiveMap = legendsTexture()

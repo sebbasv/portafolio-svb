@@ -247,7 +247,7 @@ export default function HeroStory({ ready = true }) {
 
           {failed && (
             <img
-              src={`${ASSETS}manaba-desk.webp`}
+              src={`${ASSETS}${PROJECTS[0].id}-desk.webp`}
               alt=""
               className="mt-10 aspect-[16/10] w-full rounded-xl object-cover object-top ring-1 ring-white/10 lg:hidden"
             />
@@ -258,7 +258,7 @@ export default function HeroStory({ ready = true }) {
             {failed && (
               <div className="flex h-full items-center">
                 <img
-                  src={`${ASSETS}manaba-desk.webp`}
+                  src={`${ASSETS}${PROJECTS[0].id}-desk.webp`}
                   alt=""
                   className="aspect-[16/10] w-full rounded-xl object-cover object-top shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] ring-1 ring-white/10"
                 />
