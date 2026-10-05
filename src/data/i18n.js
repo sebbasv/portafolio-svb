@@ -130,25 +130,31 @@ export const DICT = {
       items: [
         {
           title: 'Landing pages',
-          price: '$250.000',
+          price: '$200.000',
           whatsapp: 'Hola Sebastián, quiero una landing page',
           text: 'Páginas de una sola pantalla, cargadas rápido y diseñadas para que el visitante pase a la acción.',
         },
         {
           title: 'Sistemas de turnos',
-          price: '$350.000',
+          price: '$300.000',
           whatsapp: 'Hola Sebastián, quiero una landing con turnos o pedidos por WhatsApp',
           text: 'Una landing con turnos o pedidos que llegan directo a tu WhatsApp, para no perder clientes por llamadas sin atender.',
         },
         {
           title: 'Sitios institucionales',
-          price: '$450.000',
+          price: '$400.000',
           whatsapp: 'Hola Sebastián, quiero un sitio institucional',
           text: 'Hasta 5–7 páginas para negocios de servicios: identidad clara, información ordenada y contacto directo.',
         },
         {
+          title: 'Turnos en la nube',
+          price: '$500.000',
+          whatsapp: 'Hola Sebastián, quiero un sistema de turnos en la nube',
+          text: 'Agenda online donde tus clientes eligen día y hora disponibles, con panel para gestionar reservas y recordatorios automáticos.',
+        },
+        {
           title: 'E-commerce',
-          price: '$650.000',
+          price: '$600.000',
           whatsapp: 'Hola Sebastián, quiero una tienda online',
           text: 'Catálogo con filtros y carrito que arma el pedido y lo manda por WhatsApp, sin que nadie se pierda en el camino.',
         },
@@ -375,6 +381,12 @@ export const DICT = {
           price: 'USD 400',
           whatsapp: 'Hi Sebastián, I would like a corporate site',
           text: 'Up to 5–7 pages for service businesses: clear identity, organised information and direct contact.',
+        },
+        {
+          title: 'Cloud booking systems',
+          price: 'USD 450',
+          whatsapp: 'Hi Sebastián, I would like a cloud booking system',
+          text: 'An online calendar where customers pick an available day and time, with a dashboard to manage bookings and automatic reminders.',
         },
         {
           title: 'E-commerce',

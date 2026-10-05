@@ -7,7 +7,7 @@ import { useI18n } from '../lib/locale'
 /**
  * Services — a numbered editorial list rather than a card grid.
  * Hairline separators and oversized index numerals carry the hierarchy, so
- * four items read as one confident block. Each row is a real link: it opens
+ * the items read as one confident block. Each row is a real link: it opens
  * WhatsApp with a message about that service already typed in, so the arrow
  * promises a click that actually goes somewhere.
  */
