@@ -164,7 +164,6 @@ export const DICT = {
       extras: [
         { label: 'Página adicional', price: '$60.000' },
         { label: 'Versión bilingüe ES/EN', price: '+25%' },
-        { label: 'Mantenimiento mensual', price: '$20.000/mes' },
         { label: 'Hora de trabajo fuera de alcance', price: '$15.000' },
       ],
       maintenanceTitle: 'Mantenimiento',
@@ -400,7 +399,6 @@ export const DICT = {
       extras: [
         { label: 'Additional page', price: 'USD 45' },
         { label: 'Bilingual ES/EN version', price: '+25%' },
-        { label: 'Monthly maintenance', price: 'USD 20/mo' },
         { label: 'Out-of-scope work, per hour', price: 'USD 15' },
       ],
       maintenanceTitle: 'Maintenance',
