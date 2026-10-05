@@ -92,6 +92,11 @@ export default function Services() {
                       <h3 className="type-title text-mist">{service.title}</h3>
                       <p className="type-label text-slate">
                         {t('services.from')}{' '}
+                        {service.oldPrice && (
+                          <s className="mr-2 font-display text-sm tracking-normal text-slate/70">
+                            {service.oldPrice}
+                          </s>
+                        )}
                         <span className="font-display text-lg tracking-normal text-peach">
                           {service.price}
                         </span>
