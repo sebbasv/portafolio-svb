@@ -100,6 +100,11 @@ export default function Services() {
                         <span className="font-display text-lg tracking-normal text-peach">
                           {service.price}
                         </span>
+                        {service.monthly && (
+                          <span className="ml-1 font-display text-sm tracking-normal text-peach/80">
+                            {service.monthly}
+                          </span>
+                        )}
                       </p>
                     </div>
                     <p className="mt-2 max-w-lg text-sm leading-relaxed text-slate md:text-base">
