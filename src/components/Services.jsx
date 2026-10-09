@@ -60,6 +60,11 @@ export default function Services() {
               <p className="mt-6 max-w-sm text-base leading-relaxed text-slate">
                 {t('services.lead')}
               </p>
+
+              <p className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-peach/30 bg-peach/10 px-4 py-2 text-sm font-medium text-peach">
+                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-peach" />
+                {t('services.discount')}
+              </p>
             </div>
           </div>
 
@@ -88,25 +93,7 @@ export default function Services() {
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div className="flex-1">
-                    <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                      <h3 className="type-title text-mist">{service.title}</h3>
-                      <p className="type-label text-slate">
-                        {t('services.from')}{' '}
-                        {service.oldPrice && (
-                          <s className="mr-2 font-display text-sm tracking-normal text-slate/70">
-                            {service.oldPrice}
-                          </s>
-                        )}
-                        <span className="font-display text-lg tracking-normal text-peach">
-                          {service.price}
-                        </span>
-                        {service.monthly && (
-                          <span className="ml-1 font-display text-sm tracking-normal text-peach/80">
-                            {service.monthly}
-                          </span>
-                        )}
-                      </p>
-                    </div>
+                    <h3 className="type-title text-mist">{service.title}</h3>
                     <p className="mt-2 max-w-lg text-sm leading-relaxed text-slate md:text-base">
                       {service.text}
                     </p>
@@ -138,14 +125,14 @@ export default function Services() {
   )
 }
 
-/** Small uppercase heading shared by the three pricing columns. */
+/** Small uppercase heading shared by the three detail columns. */
 function ColumnTitle({ children }) {
   return <h3 className="type-label border-b border-white/8 pb-4 text-peach">{children}</h3>
 }
 
 /**
  * Extras, maintenance and terms: what a client needs to know before asking
- * for a quote, under the service list so the prices above stay scannable.
+ * for a quote, under the service list so the list above stays scannable.
  */
 function PricingDetails() {
   const { t } = useI18n()
@@ -162,27 +149,20 @@ function PricingDetails() {
     >
       <div>
         <ColumnTitle>{t('services.extrasTitle')}</ColumnTitle>
-        <dl>
+        <ul>
           {extras.map((extra) => (
-            <div
-              key={extra.label}
-              className="flex items-baseline justify-between gap-6 border-b border-white/8 py-4"
-            >
-              <dt className="text-sm text-mist md:text-base">{extra.label}</dt>
-              <dd className="type-body-sm shrink-0 font-medium text-peach">{extra.price}</dd>
-            </div>
+            <li key={extra} className="border-b border-white/8 py-4 text-sm text-mist md:text-base">
+              {extra}
+            </li>
           ))}
-        </dl>
-        <p className="type-body-sm mt-4 text-slate">{t('services.currencyNote')}</p>
+        </ul>
+        <p className="type-body-sm mt-4 text-slate">{t('services.extrasNote')}</p>
       </div>
 
       <div>
         <ColumnTitle>{t('services.maintenanceTitle')}</ColumnTitle>
         <p className="mt-4 text-sm leading-relaxed text-mist md:text-base">
           {t('services.maintenance')}
-        </p>
-        <p className="type-body-sm mt-4 font-medium text-peach">
-          {t('services.maintenancePrice')}
         </p>
       </div>
 
