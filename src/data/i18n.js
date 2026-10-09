@@ -390,6 +390,7 @@ export const DICT = {
         {
           title: 'Online booking',
           price: 'USD 450',
+          monthly: '+ USD 20/mo',
           whatsapp: 'Hi Sebastián, I would like an online booking system',
           text: 'Your customers book on their own, at any hour. The slot is blocked automatically and you see and manage every booking from your dashboard. Database and support included.',
         },
