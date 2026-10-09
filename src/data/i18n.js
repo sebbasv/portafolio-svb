@@ -136,7 +136,7 @@ export const DICT = {
           text: 'Páginas de una sola pantalla, cargadas rápido y diseñadas para que el visitante pase a la acción.',
         },
         {
-          title: 'Sistemas de turnos',
+          title: 'Turnos por WhatsApp',
           price: '$300.000',
           oldPrice: '$350.000',
           whatsapp: 'Hola Sebastián, quiero una landing con turnos o pedidos por WhatsApp',
@@ -150,11 +150,12 @@ export const DICT = {
           text: 'Hasta 5–7 páginas para negocios de servicios: identidad clara, información ordenada y contacto directo.',
         },
         {
-          title: 'Turnos en la nube',
+          title: 'Agenda online',
           price: '$500.000',
           oldPrice: '$550.000',
-          whatsapp: 'Hola Sebastián, quiero un sistema de turnos en la nube',
-          text: 'Agenda online donde tus clientes eligen día y hora disponibles, con panel para gestionar reservas y recordatorios automáticos.',
+          monthly: '+ $30.000/mes',
+          whatsapp: 'Hola Sebastián, quiero una agenda online',
+          text: 'Tus clientes reservan solos, a cualquier hora. El horario se bloquea automáticamente y vos ves y gestionás todos los turnos desde tu panel. Incluye base de datos y soporte.',
         },
         {
           title: 'E-commerce',
@@ -168,7 +169,7 @@ export const DICT = {
       extrasTitle: 'Extras',
       extras: [
         { label: 'Página adicional', price: '$60.000' },
-        { label: 'Versión bilingüe ES/EN', price: '+25%' },
+        { label: 'Versión bilingüe ES/EN', price: '+10%' },
         { label: 'Hora de trabajo fuera de alcance', price: '$15.000' },
       ],
       maintenanceTitle: 'Mantenimiento',
@@ -375,7 +376,7 @@ export const DICT = {
           text: 'Single-screen pages that load fast and are built to move the visitor to action.',
         },
         {
-          title: 'Booking systems',
+          title: 'WhatsApp bookings',
           price: 'USD 300',
           whatsapp: 'Hi Sebastián, I would like a landing page with WhatsApp bookings or orders',
           text: 'A landing page whose bookings or orders land straight in your WhatsApp, so no customer is lost to a missed call.',
@@ -387,10 +388,10 @@ export const DICT = {
           text: 'Up to 5–7 pages for service businesses: clear identity, organised information and direct contact.',
         },
         {
-          title: 'Cloud booking systems',
+          title: 'Online booking',
           price: 'USD 450',
-          whatsapp: 'Hi Sebastián, I would like a cloud booking system',
-          text: 'An online calendar where customers pick an available day and time, with a dashboard to manage bookings and automatic reminders.',
+          whatsapp: 'Hi Sebastián, I would like an online booking system',
+          text: 'Your customers book on their own, at any hour. The slot is blocked automatically and you see and manage every booking from your dashboard. Database and support included.',
         },
         {
           title: 'E-commerce',
@@ -403,7 +404,7 @@ export const DICT = {
       extrasTitle: 'Extras',
       extras: [
         { label: 'Additional page', price: 'USD 45' },
-        { label: 'Bilingual ES/EN version', price: '+25%' },
+        { label: 'Bilingual ES/EN version', price: '+10%' },
         { label: 'Out-of-scope work, per hour', price: 'USD 15' },
       ],
       maintenanceTitle: 'Maintenance',
