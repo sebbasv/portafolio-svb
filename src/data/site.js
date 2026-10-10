@@ -9,6 +9,13 @@ export const GITHUB_URL = 'https://github.com/sebbasv'
 export const LINKEDIN_URL = null
 export const EMAIL = 'sebastianvalecillosblanco@gmail.com'
 
+/**
+ * GoatCounter site code: the "svb" in svb.goatcounter.com. Visits and clicks
+ * on contact links are counted there (see src/lib/analytics.js); null turns
+ * the counter off.
+ */
+export const GOATCOUNTER_CODE = 'sebbasv'
+
 /** WhatsApp link with the message already typed in. */
 export const whatsappWith = (text) => `${WHATSAPP_URL}?text=${encodeURIComponent(text)}`
 
