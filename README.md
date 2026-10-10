@@ -70,3 +70,19 @@ conviene regenerarla; la URL está en las etiquetas `og:image` de `index.html`.
 
 WhatsApp e Instagram están centralizados en `src/data/site.js` y se reusan en
 todos los llamados a la acción.
+
+## Visitas
+
+Las visitas se cuentan con [GoatCounter](https://www.goatcounter.com) (gratis,
+sin cookies). El código del sitio va en `GOATCOUNTER_CODE` en
+`src/data/site.js`; con `null` no se cuenta nada. Solo corre en el build de
+producción, así que `npm run dev` no suma visitas.
+
+En el panel aparecen:
+
+- `/?lang=es` y `/?lang=en`: visitas, según el idioma en que se vio la página.
+- `click-whatsapp`, `click-instagram`, `click-email`, `click-github`: clics en
+  los links de contacto. El título dice desde qué sección (`header`, `top`,
+  `servicios`, `contacto`, `menu-fullscreen`).
+
+La lógica está en `src/lib/analytics.js`.
