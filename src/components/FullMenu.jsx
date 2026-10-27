@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useRef } from 'react'
 import SplitText from './SplitText'
-import { EMAIL, INSTAGRAM_URL, NAV_LINKS, WHATSAPP_URL } from '../data/site'
+import { EMAIL, NAV_LINKS, WHATSAPP_URL } from '../data/site'
 import { useI18n } from '../lib/locale'
 
 const MOTION = {
@@ -160,14 +160,6 @@ export default function FullMenu({ open, onClose }) {
                   className="type-button inline-flex h-12 w-fit items-center rounded-full bg-peach px-6 text-ink transition-transform duration-500 [transition-timing-function:var(--ease-out-expo)] hover:-translate-y-0.5"
                 >
                   WhatsApp
-                </a>
-                <a
-                  href={INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="type-button inline-flex h-12 w-fit items-center rounded-full border border-white/14 px-6 text-mist transition-colors duration-500 hover:text-peach"
-                >
-                  {t('cta.instagram')}
                 </a>
                 <a
                   href={`mailto:${EMAIL}`}

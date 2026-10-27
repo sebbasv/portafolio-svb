@@ -5,7 +5,6 @@ import { TESTIMONIALS } from '../data/about'
 import {
   EMAIL,
   GITHUB_URL,
-  INSTAGRAM_URL,
   LINKEDIN_URL,
   OWNER,
   WHATSAPP_URL,
@@ -189,7 +188,6 @@ export default function FooterCTA() {
           <nav aria-label={t('cta.socialNav')}>
             <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
               {[
-                ['Instagram', INSTAGRAM_URL],
                 ['GitHub', GITHUB_URL],
                 ['LinkedIn', LINKEDIN_URL],
               ]

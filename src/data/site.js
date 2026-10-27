@@ -3,7 +3,6 @@
  * Single WhatsApp number reused across every call to action.
  */
 export const WHATSAPP_URL = 'https://wa.me/5491138991228'
-export const INSTAGRAM_URL = 'https://www.instagram.com/sebbasv/'
 export const GITHUB_URL = 'https://github.com/sebbasv'
 /** Fill in to show LinkedIn next to the other profiles; null hides it. */
 export const LINKEDIN_URL = null
